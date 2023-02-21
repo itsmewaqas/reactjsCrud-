@@ -1,0 +1,349 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  padding: 15px 0px;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  display: block;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+p {
+  margin: 0px;
+  padding: 15px 0px;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  letter-spacing: 1px;
+  color: #000;
+  text-align: left;
+}
+
+/*clearfix css*/
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/*clearfix css end*/
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1;
+}
+
+.header {
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  border-bottom: #ccc solid 1px;
+  box-sizing: border-box;
+}
+
+.header .logo {
+  align-items: flex-start;
+}
+
+.header ul {
+  align-items: flex-start;
+}
+
+.header ul li {
+  margin: 0px;
+  padding: 0px 15px;
+  list-style: none;
+  text-align: center;
+  float: left;
+}
+
+.header ul li a {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #666;
+}
+
+.footer {
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  border-top: #ccc solid 1px;
+  box-sizing: border-box;
+}
+
+.footer p {
+  padding: 15px 0px;
+}
+
+.container {
+  padding: 15px 0px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.inputFieldBox {
+  float: left;
+  width: 25%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.inputFieldBox label {
+  display: block;
+  font-size: 12px;
+  padding: 5px 0px;
+}
+
+.inputFieldBox input[type=text] {
+  width: 100%;
+  height: 24px;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputFieldBox input[type=password] {
+  width: 100%;
+  height: 24px;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputFieldBox input[type=email] {
+  width: 100%;
+  height: 24px;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputFieldBox input[type=date] {
+  width: 100%;
+  height: 24px;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputFieldBox select {
+  width: 100%;
+  height: 29px;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputRadioCheckBox {
+  float: left;
+  width: 25%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.inputRadioCheckBox label {
+  display: block;
+  font-size: 12px;
+  padding: 5px 0px;
+}
+
+.inputRadioCheckBox div label {
+  display: inline;
+  font-size: 12px;
+  padding: 0px;
+}
+
+.inputFileBox {
+  float: left;
+  width: 25%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.inputFileBox label {
+  display: block;
+  font-size: 12px;
+  padding: 5px 0px;
+}
+
+.inputFileBox input[type=file] {
+  width: 70%;
+  height: 29px;
+  float: left;
+  border: #ccc solid 1px;
+  border-radius: 5px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.inputFileBox img {
+  float: right;
+  width: 50px;
+  height: 50px;
+  margin-top: -15px;
+}
+
+.btn1 {
+  float: right;
+  margin: 15px;
+  cursor: pointer;
+}
+
+.loaderContainer {
+  position: relative;
+}
+
+.loader {
+  position: fixed;
+  right: 15px;
+  bottom: 45px;
+  width: 100px;
+  height: 100px;
+  padding-top: 15%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 15px auto;
+  display: block;
+  z-index: 1;
+}
+
+.loader img {
+  width: 50px;
+  height: 50px;
+}
+
+.error {
+  display: block;
+  clear: both;
+  color: red;
+  padding: 0px;
+  font-size: 11px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+}
+
+tr,
+th {
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+tr,
+td {
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.tableActionBtn {
+  padding: 0px;
+  margin: 5px 2px 0px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  float: left;
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, .5);
+}
+.modalContent{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 20%;
+  padding: 15px;
+  box-sizing: border-box;
+  min-height: 300px;
+  background-color: #fff;
+  z-index: 111;
+  width: 500px;
+  margin: 0px auto;
+}
