@@ -315,6 +315,7 @@ td {
   padding: 5px 10px;
   font-size: 12px;
   text-align: left;
+  text-transform: lowercase;
 }
 
 .tableActionBtn {

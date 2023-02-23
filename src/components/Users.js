@@ -13,8 +13,16 @@ function Users(props) {
   const dispatch = useDispatch();
   const userDetails = useSelector(({ userAddReducer }) => userAddReducer);
 
+  const loginDetails = useSelector(({ loginData }) => loginData);
+
   const data = useSelector((state) => {
     return state
+  });
+
+  const getType = loginDetails.loginDetails.usertype;
+  var getUser = data?.userFetchReducer?.userFetchList;
+  const filterRow = getUser.filter(getUser => {
+    return getUser.ID === loginDetails.loginDetails.ID;
   });
 
   const [userId, setUserId] = useState(null);
@@ -293,7 +301,6 @@ function Users(props) {
         <div className='loader'>{userDetails?.loading && <img src={loader} />}</div>
         <div className='loader'>{data.userFetchReducer?.loading && <img src={loader} />}</div>
       </div>
-
       <button className='btn1' onClick={() => showForm()}>
         {showformPanel == false ? 'AddUser' : 'X'}
       </button>
@@ -428,63 +435,72 @@ function Users(props) {
         </div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>profilepic</th>
-            <th>name</th>
-            <th>email</th>
-            <th>cell</th>
-            <th>gender</th>
-            {/* <th>created date</th>
-            <th>qualification</th>
-            <th>user type</th>
-            <th>status</th>
-            <th>user location</th> */}
-            <th>Actions</th>
-          </tr>
-        </thead>
-        {data.userFetchReducer?.userFetchList == null || data.userFetchReducer?.userFetchList.length == 0 ?
-          <p>data not found</p> :
-          <tbody>
-            {data.userFetchReducer?.userFetchList.map((item, index) => {
-              return (
-                <tr key={index.toString()}>
-                  <td>
-                    <img style={{ width: '50px', height: '50px' }} src={IMAGE_URL + item.profilepic} alt="" />
-                  </td>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.cell}</td>
-                  <td>{item.gender}</td>
-                  {/* <td>{item.createddate}</td>
-                  <td>{item.qualification.join(', ')}</td>
-                  <td>{item.usertype}</td>
-                  <td>{item.status}</td>
-                  <td>
-                    <p>{item.objLocation.houseno},
-                      {item.objLocation.city},
-                      {item.objLocation.state},
-                      {item.objLocation.country}</p>
-                  </td> */}
-                  <td>
-                    <button onClick={() => editUser(item)} className='tableActionBtn'>
-                      <img src={require('../assets/img/edit.png')} alt="" />
-                    </button>
-                    <button onClick={() => viewUser(item)} className='tableActionBtn'>
-                      <img src={require('../assets/img/view.png')} alt="" />
-                    </button>
-                    <button onClick={() => deleteUser(item)} className='tableActionBtn'>
-                      <img src={require('../assets/img/delete.png')} alt="" />
-                    </button>
-                  </td>
-                </tr>
-              )
-            })
-            }
-          </tbody>
-        }
-      </table>
+      {getType == "Admin" ?
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>profilepic</th>
+                <th>name</th>
+                <th>email</th>
+                <th>cell</th>
+                <th>gender</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            {data.userFetchReducer?.userFetchList == null || data.userFetchReducer?.userFetchList.length == 0 ?
+              <p>data not found</p> :
+              <tbody>
+                {data.userFetchReducer?.userFetchList.map((item, index) => {
+                  return (
+                    <tr key={index.toString()}>
+                      <td>
+                        <img style={{ width: '50px', height: '50px' }} src={IMAGE_URL + item.profilepic} alt="" />
+                      </td>
+                      <td>{item.name}</td>
+                      <td>{item.email}</td>
+                      <td>{item.cell}</td>
+                      <td>{item.gender}</td>
+                      <td>
+                        <button onClick={() => editUser(item)} className='tableActionBtn'>
+                          <img src={require('../assets/img/edit.png')} alt="" />
+                        </button>
+                        <button onClick={() => viewUser(item)} className='tableActionBtn'>
+                          <img src={require('../assets/img/view.png')} alt="" />
+                        </button>
+                        <button onClick={() => deleteUser(item)} className='tableActionBtn'>
+                          <img src={require('../assets/img/delete.png')} alt="" />
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>}
+          </table>
+        </div>
+        :
+        <div>
+          {filterRow?.map((row, index) => (
+            <div key={index.toString()}>
+              <p>{row.name}</p>
+              <p>{row.email}</p>
+              <p>{row.cell}</p>
+              <p>{row.gender}</p>
+              <p>{row.createddate}</p>
+              <p>{row.createddate}</p>
+              <p>{row.usertype}</p>
+              <p><img style={{ width: '50px', height: '50px' }} src={IMAGE_URL + row.profilepic} alt="" /></p>
+              <p>{row.status}</p>
+              <p>{row.objLocation.houseno}</p>
+              <p>{row.objLocation.city}</p>
+              <p>{row.objLocation.state}</p>
+              <p>{row.objLocation.country}</p>
+              <p><button onClick={() => editUser(row)} className='tableActionBtn'>
+                <img src={require('../assets/img/edit.png')} alt="" />
+              </button></p>
+            </div>
+          ))}
+        </div>}
     </div>
   );
 }
